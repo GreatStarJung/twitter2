@@ -1,0 +1,21 @@
+<h1>김치트위터</h1>
+<% @posting.each do |x| %>
+No : <%= x.id %><br>
+Name : <%= x.post_username %><br>
+Contents : <%= x.post_conetents %><a href="/powerade/delete/<%= x.id%>">[x]</a><br>
+<a href="/powerade/modify/<%= x.id%>">[Edit]<a><br>
+  <% x.comments.each do |p| %>
+    <%= p.comment_contents %>
+  <% end%>
+  <form action="powerade/comment" method="post">
+    <input type="hidden" name="user_id" value="<%= x.id %>">
+    Reply : <input type="text" name="comment"><input type="submit" value="Reply"><br>
+  </form>
+<% end %>
+<br><br><br>
+<form action="powerade/write" method="post">
+  Name : <input type="text" name="author_name"><br>
+  Password : <input type="password" name="author_password"><br>
+  Contents : <textarea name="contents" rows="8" cols="80"></textarea><br>
+  <input type="submit" value="Submit">
+</form>

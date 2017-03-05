@@ -1,0 +1,7 @@
+<h1>크리스탈 정수정</h1>
+<form action="/powerade/update/<%= @find_post.id %>" method="post">
+Name : <input type="text" name="newname" value="<%= @find_post.post_username%>"><br>
+Contents : <textarea name="newcontents"><%= @find_post.post_conetents %></textarea>
+<input type="submit" name="" value="edit">
+</form>
+<a href="/">돌아가기<a>
